@@ -1,5 +1,7 @@
 
-import AllUser from './components/AllUser'
+import AllUser from './components/AllUser';
+
+
 function App()
  { 
   return (
