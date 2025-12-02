@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState } from "react";
 
 export default function Register()
 {
@@ -10,7 +10,7 @@ export default function Register()
     const [successMsg,setSuccessMsg]=useState("");
 
     const handleChange=(e)=>{
-        setformData({...formData,[e.target.value]:e.target.value})
+        setformData({...formData,[e.target.name]:e.target.value})
     }
 
     const validate=()=>{
@@ -41,19 +41,30 @@ export default function Register()
         <>
         <center>
         <h1>Regsiter Form</h1>
-        <form>
+        <form onSubmit={handleSubmit}>
+
+        {successMsg && <h2><mark>{successMsg}</mark></h2>}
+
             <label>Enter Name:</label>
-            <input type="text" name="unmae"/>
+            <input type="text" name="uname" onChange={handleChange}/>
+            {errors.uname && <p><mark>{errors.uname}</mark></p>}
             <br /><br />
+
             <label>Enter Email:</label>
-            <input type="text" name="umial"/>
+            <input type="text" name="uemail" onChange={handleChange}/>
+            {errors.uemail && <p><mark>{errors.uemail}</mark></p>}
             <br /><br />
+
             <label>Enter Password:</label>
-            <input type="number" name="upass"/>
+            <input type="number" name="upass" onChange={handleChange}/>
+            {errors.upass && <p><mark>{errors.upass}</mark></p>}
             <br /><br />
+
             <label>Enter Confirm Password:</label>
-            <input type="number" name="ucpass"/>
+            <input type="number" name="ucpass" onChange={handleChange}/>
+            {errors.ucpass && <p><mark>{errors.ucpass}</mark></p>}
             <br /><br />
+
             <input type="submit" value={"submit"} />&nbsp;
             <input type="reset" value={"cancel"} />
         </form>
